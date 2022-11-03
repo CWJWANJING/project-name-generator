@@ -19,7 +19,12 @@ export default function Home() {
 
         <form action="datalocation" method="post">
           <input type="text" id="addTag" name="tag" placeholder="Enter new tag here"/>
-          <button type="submit">Add</button>
+          <button type="submit" id="Add">Add</button>
+          <p>Tags</p>
+          <div className="tags"></div>
+          <button type="submit" id="Generate">Generate</button>
+          <p>Results</p>
+          <div className="results"></div>
         </form>
       </main>
 
@@ -44,18 +49,55 @@ export default function Home() {
 
         p {
           color: #e6f9ff;
+          margin-top: 5%;
+          font-size: 1.5rem;
         }
 
-        button {
+        .tags {
+          box-sizing: content-box;  
+          margin-top: 5%;
+          width: 300px;
+          height: 20px;
+          padding: 30px;  
+          border: 2px solid #e6f9ff;
+        }
+
+        .results {
+          box-sizing: content-box;  
+          margin-top: 5%;
+          width: 300px;
+          height: 100px;
+          padding: 30px;  
+          border: 2px solid #e6f9ff;
+        }
+
+        #Add {
           color: #6495ED;
           background-color: #e6f9ff;
-          width: 25%;
+          width: 24%;
           border-color: #6a90d4;
           height: 2.5rem;
           font-size: 1rem;
+          margin-left: 2%;
         }
 
-        button:hover {
+        #Add:hover {
+          color: #e6f9ff;
+          background-color: #6a90d4;
+          border-color: black;
+        }
+
+        #Generate {
+          color: #6495ED;
+          background-color: #e6f9ff;
+          width: 100%;
+          border-color: #6a90d4;
+          height: 2.5rem;
+          font-size: 1rem;
+          margin-top: 5%;
+        }
+
+        #Generate:hover {
           color: #e6f9ff;
           background-color: #6a90d4;
           border-color: black;
@@ -65,7 +107,7 @@ export default function Home() {
           height: 2.5rem;
           text-size: 1rem;
           text-align: center;
-          width: 75%;
+          width: 74%;
         }
 
         input::placeholder {
