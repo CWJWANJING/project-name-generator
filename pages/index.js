@@ -19,14 +19,8 @@ export default function Home() {
 
         <form action="datalocation" method="post">
           <input type="text" id="addTag" name="tag" placeholder="Enter new tag here"/>
+          <button type="submit">Add</button>
         </form>
-
-        {/* <div className="grid"> */}
-          {/* <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a> */}
-        {/* </div> */}
       </main>
 
       <footer>
@@ -50,6 +44,21 @@ export default function Home() {
 
         p {
           color: #e6f9ff;
+        }
+
+        button {
+          color: #6495ED;
+          height: 2rem;
+          background-color: #e6f9ff;
+          margin-top: 5%;
+          width: 105%;
+          border-color: #6a90d4;
+        }
+
+        button:hover {
+          color: #e6f9ff;
+          background-color: #6a90d4;
+          border-color: black;
         }
 
         main {
@@ -123,46 +132,6 @@ export default function Home() {
             DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
         }
 
-        // .grid {
-        //   display: flex;
-        //   align-items: center;
-        //   justify-content: center;
-        //   flex-wrap: wrap;
-
-        //   max-width: 800px;
-        //   margin-top: 3rem;
-        // }
-
-        // .card {
-        //   margin: 1rem;
-        //   flex-basis: 45%;
-        //   padding: 1.5rem;
-        //   text-align: left;
-        //   color: inherit;
-        //   text-decoration: none;
-        //   border: 1px solid #eaeaea;
-        //   border-radius: 10px;
-        //   transition: color 0.15s ease, border-color 0.15s ease;
-        // }
-
-        // .card:hover,
-        // .card:focus,
-        // .card:active {
-        //   color: #0070f3;
-        //   border-color: #0070f3;
-        // }
-
-        // .card h3 {
-        //   margin: 0 0 1rem 0;
-        //   font-size: 1.5rem;
-        // }
-
-        // .card p {
-        //   margin: 0;
-        //   font-size: 1.25rem;
-        //   line-height: 1.5;
-        // }
-
         .logo {
           height: 1em;
         }
@@ -178,18 +147,26 @@ export default function Home() {
           padding: 8% 12%;
           border: 0.1rem solid;
           text-size: 1rem;
+          width: 105%;
         }
 
         input::placeholder {
           font-size: 1.2rem;
+          color: #6495ED;
+        }
+
+        input[type="text"], textarea {
+          background-color : #e6f9ff; 
         }
 
         input[type=text] {
           font-size: 1.2rem;
+          border-color: #6495ED;
         }
 
         input[type=text]:hover {
-          border: 0.2rem solid #6495ED;
+          color: #e6f9ff;
+          border-color: black;
         }
       `}</style>
 
