@@ -48,16 +48,41 @@ export default function Home() {
 
         button {
           color: #6495ED;
-          height: 2rem;
           background-color: #e6f9ff;
-          margin-top: 5%;
-          width: 105%;
+          width: 25%;
           border-color: #6a90d4;
+          height: 2.5rem;
+          font-size: 1rem;
         }
 
         button:hover {
           color: #e6f9ff;
           background-color: #6a90d4;
+          border-color: black;
+        }
+
+        input {
+          height: 2.5rem;
+          text-size: 1rem;
+          text-align: center;
+          width: 75%;
+        }
+
+        input::placeholder {
+          font-size: 1rem;
+          color: #6495ED;
+        }
+
+        input[type="text"], textarea {
+          background-color : #e6f9ff; 
+        }
+
+        input[type=text] {
+          font-size: 1rem;
+          border-color: #6495ED;
+        }
+
+        input[type=text]:hover {
           border-color: black;
         }
 
@@ -141,32 +166,6 @@ export default function Home() {
             width: 100%;
             flex-direction: column;
           }
-        }
-        
-        input {
-          padding: 8% 12%;
-          border: 0.1rem solid;
-          text-size: 1rem;
-          width: 105%;
-        }
-
-        input::placeholder {
-          font-size: 1.2rem;
-          color: #6495ED;
-        }
-
-        input[type="text"], textarea {
-          background-color : #e6f9ff; 
-        }
-
-        input[type=text] {
-          font-size: 1.2rem;
-          border-color: #6495ED;
-        }
-
-        input[type=text]:hover {
-          color: #e6f9ff;
-          border-color: black;
         }
       `}</style>
 
