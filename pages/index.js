@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from "next/head";
 
 export default function Home() {
   return (
@@ -9,31 +9,43 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="title">
-          Project Name Generator
-        </h1>
+        <h1 className="title">Project Name Generator</h1>
 
         <p className="description">
           Please enter tags below to generate project names.
         </p>
 
         <form action="datalocation" method="post">
-          <input type="text" id="addTag" name="tag" placeholder="Enter new tag here"/>
-          <button type="submit" id="Add">Add</button>
+          <input
+            type="text"
+            id="addTag"
+            name="tag"
+            placeholder="Enter new tag here"
+          />
+          <button type="submit" id="Add">
+            Add
+          </button>
           <p>Tags</p>
           <div className="tags"></div>
-          <button type="submit" id="Generate">Generate</button>
+          <button type="submit" id="Generate">
+            Generate
+          </button>
           <p>Results</p>
-          <div className="results"></div>
+          <div className="results">
+            {JSON.stringify(
+              fetch("http://localhost:3001/api/ai",
+              {
+                method: "POST",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({keywords: "python cool beans"})
+              })
+            )}
+          </div>
         </form>
       </main>
 
       <footer>
-        <a
-          href="https://cwjwanjing.github.io/"
-        >
-          @ Wanjing Chen
-        </a>
+        <a href="https://cwjwanjing.github.io/">@ Wanjing Chen</a>
       </footer>
 
       <style jsx>{`
@@ -44,7 +56,7 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          background-color: #6495ED;
+          background-color: #6495ed;
         }
 
         p {
@@ -54,25 +66,25 @@ export default function Home() {
         }
 
         .tags {
-          box-sizing: content-box;  
+          box-sizing: content-box;
           margin-top: 5%;
           width: 300px;
           height: 20px;
-          padding: 30px;  
+          padding: 30px;
           border: 2px solid #e6f9ff;
         }
 
         .results {
-          box-sizing: content-box;  
+          box-sizing: content-box;
           margin-top: 5%;
           width: 300px;
           height: 100px;
-          padding: 30px;  
+          padding: 30px;
           border: 2px solid #e6f9ff;
         }
 
         #Add {
-          color: #6495ED;
+          color: #6495ed;
           background-color: #e6f9ff;
           width: 24%;
           border-color: #6a90d4;
@@ -88,7 +100,7 @@ export default function Home() {
         }
 
         #Generate {
-          color: #6495ED;
+          color: #6495ed;
           background-color: #e6f9ff;
           width: 100%;
           border-color: #6a90d4;
@@ -112,19 +124,20 @@ export default function Home() {
 
         input::placeholder {
           font-size: 1rem;
-          color: #6495ED;
+          color: #6495ed;
         }
 
-        input[type="text"], textarea {
-          background-color : #e6f9ff; 
+        input[type="text"],
+        textarea {
+          background-color: #e6f9ff;
         }
 
-        input[type=text] {
+        input[type="text"] {
           font-size: 1rem;
-          border-color: #6495ED;
+          border-color: #6495ed;
         }
 
-        input[type=text]:hover {
+        input[type="text"]:hover {
           border-color: black;
         }
 
@@ -226,5 +239,5 @@ export default function Home() {
         }
       `}</style>
     </div>
-  )
+  );
 }
