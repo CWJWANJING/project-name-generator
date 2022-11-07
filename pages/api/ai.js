@@ -6,7 +6,7 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-export default function ai(req, res){
+export default async function ai(req, res){
     const body = req.body;
 
     console.log('body: ', inspect(req, {showHidden: false, depth: null, colors: true}));
@@ -17,7 +17,7 @@ export default function ai(req, res){
 
     let prompt = `Generate project names related to the following keywords: ${body.keywords}`
 
-    openai.createCompletion({
+    await openai.createCompletion({
       model: "text-davinci-002",
       prompt: prompt,
       temperature: 0.8,
@@ -30,7 +30,7 @@ export default function ai(req, res){
     // this.setState({
     //   response: `${response.data}`
     // })
-      console.log(`${JSON.stringify(response.data)}`);
+      console.log(`${JSON.stringify(response.data.choices)}`);
       return res.status(200).json(response.data.choices);
     });
 }

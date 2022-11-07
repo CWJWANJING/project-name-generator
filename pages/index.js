@@ -33,7 +33,7 @@ export default function Home() {
           <p>Results</p>
           <div className="results">
             {JSON.stringify(
-              fetch("http://localhost:3001/api/ai",
+              fetch("http://localhost:3000/api/ai",
               {
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},
