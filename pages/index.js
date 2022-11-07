@@ -9,15 +9,15 @@ export default class Home extends React.Component {
       tag: "",
       allTags: "",
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChangeAddTag = this.handleChangeAddTag.bind(this);
+    this.handleSubmitAddTag = this.handleSubmitAddTag.bind(this);
   }
 
-  handleChange(event) {
+  handleChangeAddTag(event) {
     this.setState({ tag: event.target.value });
   }
 
-  handleSubmit(event) {
+  handleSubmitAddTag(event) {
     alert("A name was submitted: " + this.state.tag);
     this.setState({ allTags: this.state.allTags + this.state.tag + " " });
     event.preventDefault();
@@ -46,13 +46,13 @@ export default class Home extends React.Component {
             Please enter tags below to generate project names.
           </p>
 
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmitAddTag}>
             <input
               type="text"
               id="addTag"
               placeholder="Enter new tag here"
               defaultValue={this.state.tag}
-              onChange={this.handleChange}
+              onChange={this.handleChangeAddTag}
             />
             <input type="submit" id="Add" value="Add" />
           </form>
