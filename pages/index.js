@@ -11,6 +11,7 @@ export default class Home extends React.Component {
     };
     this.handleChangeAddTag = this.handleChangeAddTag.bind(this);
     this.handleSubmitAddTag = this.handleSubmitAddTag.bind(this);
+    this.handleSubmitGenerate = this.handleSubmitGenerate.bind(this);
   }
 
   handleChangeAddTag(event) {
@@ -18,20 +19,29 @@ export default class Home extends React.Component {
   }
 
   handleSubmitAddTag(event) {
-    alert("A name was submitted: " + this.state.tag);
     this.setState({ allTags: this.state.allTags + this.state.tag + " " });
     event.preventDefault();
   }
 
+  handleSubmitGenerate(event) {
+    fetch("http://localhost:3000/api/ai", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ keywords: this.state.allTags }),
+    }).then(function(response) {
+      return response.json();
+  })
+  .then(function(data) {
+      var names = data.body[0];
+      return names;
+  })
+
+    // this.setState({ results: JSON.stringify(response.data) });
+    alert(this.state.results);
+    event.preventDefault();
+  }
+
   render() {
-    //   const response = fetch("http://localhost:3000/api/ai", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ keywords: "python cool beans" }),
-    // })
-
-    //   this.state.results = JSON.stringify(response);
-
     return (
       <div className="container">
         <Head>
@@ -57,19 +67,12 @@ export default class Home extends React.Component {
             <input type="submit" id="Add" value="Add" />
           </form>
 
-          <form>
+          <form onSubmit={this.handleSubmitGenerate}>
             <p>Tags</p>
-            <div className="tags">
-              {this.state.allTags}
-            </div>
-            <button type="submit" id="Generate">
-              Generate
-            </button>
+            <div className="tags">{this.state.allTags}</div>
+            <input type="submit" id="Generate" value="Generate" />
             <p>Results</p>
-            <div className="results">
-              {/* {JSON.stringify(response)} */}
-              {this.state.results}
-            </div>
+            <div className="results">{this.state.results}</div>
           </form>
         </main>
 
@@ -95,6 +98,7 @@ export default class Home extends React.Component {
           }
 
           .tags {
+            color: white;
             box-sizing: content-box;
             margin-top: 5%;
             width: 300px;
@@ -104,6 +108,7 @@ export default class Home extends React.Component {
           }
 
           .results {
+            color: white;
             box-sizing: content-box;
             margin-top: 5%;
             width: 300px;

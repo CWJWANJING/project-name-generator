@@ -6,30 +6,28 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 
-export default async function ai(req, res){
-    const body = req.body;
+export default async function ai(req, res) {
+  const body = req.body;
 
-    console.log('body: ', inspect(req, {showHidden: false, depth: null, colors: true}));
+  if (!body.keywords) {
+    return res.status(400).json({ data: "keywords arg not found" });
+  }
 
-    if (!body.keywords) {
-      return res.status(400).json({ data: 'keywords arg not found'})
+  let prompt = `Generate project names related to the following keywords: ${body.keywords}`;
+
+ await openai.createCompletion({
+    model: "text-davinci-002",
+    prompt: prompt,
+    temperature: 0.8,
+    max_tokens: 60,
+    top_p: 1.0,
+    frequency_penalty: 0.0,
+    presence_penalty: 0.0,
+  })
+  .then(
+    (response) => {
+      return (res
+        .send({body: response.data.choices[0].text.split("\\n")}));
     }
-
-    let prompt = `Generate project names related to the following keywords: ${body.keywords}`
-
-    await openai.createCompletion({
-      model: "text-davinci-002",
-      prompt: prompt,
-      temperature: 0.8,
-      max_tokens: 60,
-      top_p: 1.0,
-      frequency_penalty: 0.0,
-      presence_penalty: 0.0,
-    })
-    .then((response) => {
-    // this.setState({
-    //   response: `${response.data}`
-    // })
-      return res.status(200).json(response.data.choices[0].text.split("\\n").join("\n"));
-    });
+  )
 }
