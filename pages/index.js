@@ -24,19 +24,21 @@ export default class Home extends React.Component {
   }
 
   handleSubmitGenerate(event) {
+    let names;
     fetch("http://localhost:3000/api/ai", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ keywords: this.state.allTags }),
-    }).then(function(response) {
+    }).then(response => {
       return response.json();
   })
-  .then(function(data) {
-      var names = data.body[0];
+  .then(data => {
+      names = data.body[0];
+      console.log(names)
+      this.setState({ results: names });
       return names;
   })
-
-    // this.setState({ results: JSON.stringify(response.data) });
+  
     alert(this.state.results);
     event.preventDefault();
   }
