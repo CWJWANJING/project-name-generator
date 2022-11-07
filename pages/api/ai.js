@@ -30,7 +30,6 @@ export default async function ai(req, res){
     // this.setState({
     //   response: `${response.data}`
     // })
-      console.log(`${JSON.stringify(response.data.choices)}`);
-      return res.status(200).json(response.data.choices);
+      return res.status(200).json(response.data.choices[0].text.split("\\n").join("\n"));
     });
 }
