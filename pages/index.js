@@ -39,7 +39,7 @@ export default class Home extends React.Component {
       return names;
   })
   
-    alert(this.state.results);
+    alert("Loding Results...");
     event.preventDefault();
   }
 
