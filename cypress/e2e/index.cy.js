@@ -51,12 +51,23 @@ describe("The Home Page UIs", () => {
 describe("The Home Page doing work", () => {
   beforeEach(() => {
     cy.visit("/");
+    cy.get("#addTag").clear();
   });
 
-  it("should be able to add new tags", () => {
+  it("should be able to add one tag", () => {
     cy.get("#addTag").type("tea");
     cy.get("#Add").click();
 
     cy.get(".tags").should('have.text', "tea ");
+  });
+
+  it("should be able to add more than one tag", () => {
+    cy.get("#addTag").type("flower");
+    cy.get("#Add").click();
+    cy.get("#addTag").clear();
+    cy.get("#addTag").type("software");
+    cy.get("#Add").click();
+
+    cy.get(".tags").should('have.text', "flower software ");
   });
 });
