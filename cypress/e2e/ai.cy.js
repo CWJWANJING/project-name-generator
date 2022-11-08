@@ -1,4 +1,4 @@
-describe('The Home Page', () => {
+describe('Calling the openai API', () => {
 
     it('should receive expected output from openai api call', () => {
         const keywords = "tea software"

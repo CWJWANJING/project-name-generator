@@ -1,4 +1,4 @@
-describe("The Home Page", () => {
+describe("The Home Page UIs", () => {
   beforeEach(() => {
     cy.visit("/");
   });
@@ -20,8 +20,28 @@ describe("The Home Page", () => {
     cy.get('#addTag').type('text');
   });
 
-  it("should have input box for submit tags", () => {
+  it("should have a button for submit tags", () => {
     cy.get('#Add').type('submit');
     cy.get('#Add').should('have.value', "Add");
+  });
+
+  it("should contains the Tags section title", () => {
+    cy.get("p").contains("Tags");
+  });
+
+  it("should have display box for all the tags", () => {
+    cy.get('.tags').should('be.visible');
+  });
+
+  it("should have a submit button for calling the API", () => {
+    cy.get('#Generate').should('have.value', "Generate");
+  });
+
+  it("should have a window for displaying the results of generated names", () => {
+    cy.get('.results').should('be.visible');
+  });
+
+  it("should contains the Results section title", () => {
+    cy.get("p").contains("Results");
   });
 });
