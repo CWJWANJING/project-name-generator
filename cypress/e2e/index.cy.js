@@ -70,4 +70,20 @@ describe("The Home Page doing work", () => {
 
     cy.get(".tags").should('have.text', "flower software ");
   });
+
+  it("should be able to call the api and display the result", () => {
+    // Add the tags
+    cy.get("#addTag").type("flower");
+    cy.get("#Add").click();
+    cy.get("#addTag").clear();
+    cy.get("#addTag").type("software");
+    cy.get("#Add").click();
+
+    // Display added tags
+    cy.get(".tags").should('have.text', "flower software ");
+
+    // Send the tags and display the results from API
+    cy.get("#Generate").click();
+    cy.get(".results").should('contain.text', " ");
+  });
 });
