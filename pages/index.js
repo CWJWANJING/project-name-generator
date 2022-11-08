@@ -47,7 +47,7 @@ export default class Home extends React.Component {
     return (
       <div className="container">
         <Head>
-          <title>Create Next App</title>
+          <title>Project Name Generator</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
@@ -81,8 +81,6 @@ export default class Home extends React.Component {
         <footer>
           <a href="https://cwjwanjing.github.io/">@ Wanjing Chen</a>
         </footer>
-
-        
       </div>
     );
   }
