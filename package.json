@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "cypress": "cypress open"
   },
   "dependencies": {
     "flatted": "^3.2.7",
@@ -14,5 +15,8 @@
   },
   "resolutions": {
     "webpack": "^5.0.0-beta.28"
+  },
+  "devDependencies": {
+    "cypress": "^10.11.0"
   }
 }
