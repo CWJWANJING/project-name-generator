@@ -15,7 +15,7 @@ To successfully call the Openai API in this project, you will need to create you
 
 1. Going to the Openai website and [sign up](https://auth0.openai.com/u/signup/identifier?state=hKFo2SBHYUx2YVJocjZ2aU9RRFVMVFExems5eTFVT2NnWU15TaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHZGLXFUUmgtNzlnekZnQ25NTlluWGE3SEh0dnEtQmpBo2NpZNkgRFJpdnNubTJNdTQyVDNLT3BxZHR3QjNOWXZpSFl6d0Q). **Note**: You would be on free trial, and have about $18 free usage. After creating the account, you can see the API keys session in your account page:
 
-![API key page]()
+![API key page](apikey.png)
 
 2. Simply click *create new secret key* and you will have your key generated. Copy the key.
 
