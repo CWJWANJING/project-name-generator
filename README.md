@@ -11,6 +11,20 @@ And you can see the website at http://localhost:3000/. This is how it looks like
 
 There is a short demo video [here](https://youtu.be/1aQnDuiXf_4). 
 
+To successfully call the Openai API in this project, you will need to create your own API keys. You can do it by 
+
+1. Going to the Openai website and [sign up](https://auth0.openai.com/u/signup/identifier?state=hKFo2SBHYUx2YVJocjZ2aU9RRFVMVFExems5eTFVT2NnWU15TaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHZGLXFUUmgtNzlnekZnQ25NTlluWGE3SEh0dnEtQmpBo2NpZNkgRFJpdnNubTJNdTQyVDNLT3BxZHR3QjNOWXZpSFl6d0Q). **Note**: You would be on free trial, and have about $18 free usage. After creating the account, you can see the API keys session in your account page:
+
+![API key page]()
+
+2. Simply click *create new secret key* and you will have your key generated. Copy the key.
+
+3. Create a file name it ```.env``` and put your key like this:
+
+```OPENAI_API_KEY = "your API key here"```
+
+4. **Very important!** Add ```.env``` in your ```.gitignore``` file. If you are cloning this project then it should already be in the ```.gitignore``` file, but double check.
+
 To run the tests:
 
 ```npm run cypress```
