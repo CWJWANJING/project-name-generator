@@ -1,3 +1,5 @@
+# Project Name Generator
+
 This project is about creating a single webpage that generates a bunch of project names based on given keywords input.
 
 # How to run
