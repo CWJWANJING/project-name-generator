@@ -40,7 +40,7 @@ It will open a window and if you click *E2E Testing* and after choosing a browse
 ## Tech choices
 - Framework: **Next.js** - I've never used React to build anything before, and Next.js seems to be a well-known React framework for building non-static websites. So I went for it to learn and practice React and building website.
 - Testing: **Cypress** - This was listed at the top of the Next.js's commonly used testing tools and I have a little bit of experience with Cypress before, so again good chance to practice. 
-- Name generating API: **OpenAI** [Product name generator](https://beta.openai.com/examples/default-product-name-gen) - GPT-3 is quite famous and that led me to OpenAI. They have an example usage of generating product name specifically and they have docs of how to make API reference.
+- Name generating API: **GPT-3** [Product name generator](https://beta.openai.com/examples/default-product-name-gen) - GPT-3 is quite famous. They have an example usage of generating product name specifically and they have docs of how to make API reference.
 
 **NOTE: My API key is only valid(free) for three months.**
 
